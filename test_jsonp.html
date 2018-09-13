@@ -35,21 +35,14 @@
 				return url ? url.substring(1) : '';
 			}
 			 $.ajax({
-				url: url,
+				url: "./test.php",
 				data:{},  // 传递数据
 				type: "GET",                                     // get/post都可以的请求方式
 				async: false,                                     // 是否同步，false为异步加载        
 				dataType: "jsonp",                                // 设置返回数据类型jsonp      
 				jsonp: "jsonpCallback",                            // jsonp的字段，服务器返回的前缀要和这个一样
 				success: function (res) {
-					console.log(res.data);
-					var slider = res.data.slider;
-					var li = "";
-					for(var i = 0; i < slider.length; i++) {
-						li += "<li><img src='" + slider[i].picUrl + "'></li>";
-					}
-					
-					$("#siderList").html(li);
+					console.log(res);
 				},
 				error: function () {
 					console.log('fail');
